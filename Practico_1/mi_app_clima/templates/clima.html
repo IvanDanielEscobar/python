@@ -1,0 +1,39 @@
+{%extends 'layout.html'%}
+
+{%block titulo%}Clima{%endblock%}
+
+{%block vamoaver%}
+    {% if error %}
+        <p>
+            {{ error }}
+        </p>
+        <p> <a href="{{ url_for('inicio') }}">Volver al la lista de ciudades</a></p>
+    {% else %}
+        <h2> Clima en {{ ciudad | replace('_', ' ') | title }}</h2>
+        <div class="container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Zona Horaria</th>
+                        <th>Temperatura</th>
+                        <th>Velocidad del viento</th>
+                        <th>Direccion del viento</th>
+                        <th>Periodo</th>
+                        <th>Tiempo atmosferico</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{fecha}} </td>
+                        <td>{{temperatura}} {{unidad_temp}}</td>
+                        <td>{{velocidad_viento}} {{unidad_viento}}</td>
+                        <td>{{direccion_viento}} {{unidad_dv}}</td>
+                        <td>{{dia_noche}}</td>
+                        <td>{{clima}} {{unidad_clima}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <a href="{{ url_for('inicio') }}">Volver al la lista de ciudades</a>
+    {% endif %}     
+{%endblock%}

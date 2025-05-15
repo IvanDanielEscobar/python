@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+
+{%block titulo%} Lista de Ciudades {%endblock%}
+
+{%block vamoaver%} 
+    <h1>Selecion de ciudades</h1>
+
+    <ul>
+        <li><a href="{{ url_for('mostrar_clima')}}?ciudad=buenos_aires">Buenos Aires</a></li>
+        <li><a href="{{ url_for('mostrar_clima')}}?ciudad=cordoba">Cordoba</a></li>
+        <li><a href="{{ url_for('mostrar_clima')}}?ciudad=madrid">Madrid</a></li>
+        <li><a href="{{ url_for('mostrar_clima')}}?ciudad=nueva_york">Nueva York</a></li>
+        <li><a href="{{ url_for('mostrar_clima')}}?ciudad=tokio">Tokio</a></li>
+        <li><a href="{{ url_for('mostrar_clima')}}?ciudad=paris">Paris</a></li>
+        <li><a href="{{ url_for('mostrar_clima')}}?ciudad=londres">Londres</a></li>
+        <li><a href="{{ url_for('mostrar_clima')}}?ciudad=sidney">Sidney</a></li>
+        <li><a href="{{ url_for('mostrar_clima')}}?ciudad=mexico">Ciudad de Mexico</a></li>
+        <li><a href="{{ url_for('mostrar_clima')}}?ciudad=el_cairo">El Cairo</a></li>
+    </ul>
+    
+{%endblock%}
