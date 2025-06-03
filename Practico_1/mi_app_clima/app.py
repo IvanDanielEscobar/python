@@ -1,6 +1,18 @@
 from flask import Flask, render_template, request
 import requests
 
+from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
+
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = ( 
+    'mysql+pymysql://iescobar:489796.Mapa96@localhost/segundocomisionb'
+)
+db = SQLAlchemy(app)
+migrate = Migrate(app, db)
+
+from models import City
+
 
 # diccionario de ciudades
 ciudades = {
@@ -17,7 +29,6 @@ ciudades = {
 }
 
 
-app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def inicio():
