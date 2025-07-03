@@ -93,3 +93,6 @@ def mostrar_clima():
         
     else:
         return render_template('clima.html', error='ciudad no encontrada')
+    
+
+@app.route('/city/<int: city=id>')

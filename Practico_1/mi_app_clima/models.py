@@ -1,22 +1,22 @@
 from app import db
 
+
 class City(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(50), nullable=False, unique=True)
+    name = db.Column(db.String(100), nullable=False, unique=True)
     lat = db.Column(db.Float, nullable=False)
-    lon = db.Column(db.Float, nullable=False)
+    long = db.Column(db.Float, nullable=False)
+    climates = db.relationship('Climate', backref='city', lazy=True)
 
-#1- obtener todas las ciudades
-City.query.all()
+    def __str__(self):
+        return self.name
 
-#2- obtener una ciudad por id
-City.query.get(1)
 
-#3- filtrar por nombre (exacto)
-City.query.filter_by(nombre = "cordoba").first()
+class Climate(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    temperature = db.Column(db.Float, nullable=False)
+    date = db.Column(db.DateTime, nullable=False)
+    ciudad_id = db.Column(db.Integer, db.ForeignKey('city.id'), nullable=False)
 
-#4- filtrar condiciones avanzadas (OR, AND)
-from sqlalchemy import or_, and_
-City.query.filter(or_(City.lat < 0, City.lon > 100)).all()
-
-#5- Buscar por nombre parcial (como un LIKE)
+    def __str__(self) -> str:
+        return f"{self.date} {self.ciudad_id} {self.temperature}"
