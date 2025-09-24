@@ -1,0 +1,38 @@
+mis cambios desde que entre fueron:
+
+-crear el ambiente virtual
+
+-instalar flask migrate
+
+-crear una base de datos
+
+-cambiar la app.config para que coincida con mi base de datos
+
+-en /users cambie los metodos para que tambien contenga POST
+
+-cambie los nombres de los templates y corregi sus rutas
+
+-agregue importaciones, redirect y url_for
+
+-corregi la inicializacion de la base de datos a SQLAlchemy 
+
+-en users for users in users se muestran los datos de usuario en la tabla
+ej=<tbody>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.username }}</td>
+            <td>{{ user.email }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+
+-en la ruta users en app.py el render enviaba users con una lista vaciay la creacion del nuevo usuario no se creaba en la base de datos, aparte le pasaba un username y antes se definia como nombre
+
+-impor models en app.py
+
+-agregue app.config['SECRET_KEY'] = "hola"
+
+-en los html los extends fueron corregidos para mostrar base.html
+
+-las rutas <a> mal definidas para flask debe ser ej=href="{{ url_for('index') }}
+
